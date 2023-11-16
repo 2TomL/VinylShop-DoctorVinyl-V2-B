@@ -1,10 +1,6 @@
 package be.doctorvinylrecords.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.DataAmount;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import javax.management.relation.Role;
@@ -18,7 +14,7 @@ import java.util.Set;
         @UniqueConstraint(columnNames = "email")
         })
 
-public class Account {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,7 +37,7 @@ public class Account {
     @JoinTable (name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public Account() {
+    public User() {
     }
 
 

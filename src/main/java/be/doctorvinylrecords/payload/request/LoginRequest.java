@@ -1,4 +1,4 @@
-package be.doctorvinylrecords.payload.requests;
+package be.doctorvinylrecords.payload.request;
 
 import org.antlr.v4.runtime.misc.NotNull;
 

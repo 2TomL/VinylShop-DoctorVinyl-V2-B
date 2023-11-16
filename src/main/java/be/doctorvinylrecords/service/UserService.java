@@ -1,14 +1,14 @@
 package be.doctorvinylrecords.service;
 
-import be.doctorvinylrecords.repository.AccountRepository;
+import be.doctorvinylrecords.repository.UserRepository;
 import be.doctorvinylrecords.repository.VinylRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountService {
+public class UserService {
     private PasswordEncoder PasswordEncoder;
-    private AccountRepository accountRepository;
+    private UserRepository userRepository;
     private VinylRepository vinylRepository;
 
 

@@ -1,6 +1,6 @@
 package be.doctorvinylrecords.payload.request;
 
-public class UpdateAccountRequest {
+public class UpdateUserRequest {
     private long id;
     private String userName;
     private String password;

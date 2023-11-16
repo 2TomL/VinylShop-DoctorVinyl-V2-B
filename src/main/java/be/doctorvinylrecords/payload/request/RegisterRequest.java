@@ -1,4 +1,4 @@
-package be.doctorvinylrecords.payload.requests;
+package be.doctorvinylrecords.payload.request;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;

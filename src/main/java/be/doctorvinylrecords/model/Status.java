@@ -1,4 +1,4 @@
-package be.DokterVinyl.model;
+package be.doctorvinylrecords.model;
 
 public enum Status {
     IN_STOCK,

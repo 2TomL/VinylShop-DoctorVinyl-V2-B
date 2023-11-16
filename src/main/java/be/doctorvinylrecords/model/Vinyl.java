@@ -1,26 +1,37 @@
-package be.DokterVinyl.model;
+package be.doctorvinylrecords.model;
 
-import jdk.jshell.Snippet;
+import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+
 
 import java.util.List;
 
+@Entity
 public class Vinyl {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long vinylId;
+    @NotNull
     private String artist;
+    @NotNull
     private String title;
+    private String catalogNr;
     private String label;
     private String country;
     private Category category;
     private int released;
     private Format format;
+
+    @OneToMany
     private List<Track> trackList;
     private double price;
     private Status status;
     static private long Qt = 0;
 
-    public Vinyl(String artist, String title, String label, String country, Category category, int released, Format format, List<Track> trackList, double price, Status status) {
+    public Vinyl(String artist, String title, String catalogNr,String label, String country, Category category, int released, Format format, List<Track> trackList, double price, Status status) {
         this.artist = artist;
         this.title = title;
+        this.catalogNr = catalogNr;
         this.label = label;
         this.country = country;
         this.category = category;
@@ -30,6 +41,8 @@ public class Vinyl {
         this.price = price;
         this.status = status;
         setVinylId(vinylId);
+    }
+    public Vinyl(){
     }
 
     public void setVinylId(long vinylId) {
@@ -50,6 +63,14 @@ public class Vinyl {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCatalogNr() {
+        return catalogNr;
+    }
+
+    public void setCatalogNr(String catalogNr) {
+        this.catalogNr = catalogNr;
     }
 
     public String getLabel() {

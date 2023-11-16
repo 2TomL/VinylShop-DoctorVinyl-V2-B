@@ -1,6 +1,4 @@
-package be.DokterVinyl.model;
-
-import java.awt.datatransfer.StringSelection;
+package be.doctorvinylrecords.model;
 
 public enum Category {
     DEEP_HOUSE("Deep House"),
