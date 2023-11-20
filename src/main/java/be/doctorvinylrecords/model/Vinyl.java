@@ -161,11 +161,14 @@ public class Vinyl {
                 "vinylId=" + vinylId +
                 ", artist='" + artist + '\'' +
                 ", title='" + title + '\'' +
+                ", catalogNr='" + catalogNr + '\'' +
                 ", label='" + label + '\'' +
                 ", country='" + country + '\'' +
                 ", category=" + category +
                 ", released=" + released +
                 ", format=" + format +
+                ", bestSeller=" + bestSeller +
+                ", trackList=" + trackList +
                 ", price=" + price +
                 ", status=" + status +
                 '}';
