@@ -21,6 +21,7 @@ public class Vinyl {
     private Category category;
     private int released;
     private Format format;
+    private boolean bestSeller;
 
     @OneToMany
     private List<Track> trackList;
@@ -28,7 +29,7 @@ public class Vinyl {
     private Status status;
     static private long Qt = 0;
 
-    public Vinyl(String artist, String title, String catalogNr,String label, String country, Category category, int released, Format format, List<Track> trackList, double price, Status status) {
+    public Vinyl(String artist, String title, String catalogNr,String label, String country, Category category, int released, Format format, boolean bestSeller, List<Track> trackList, double price, Status status) {
         this.artist = artist;
         this.title = title;
         this.catalogNr = catalogNr;
@@ -37,6 +38,7 @@ public class Vinyl {
         this.category = category;
         this.released = released;
         this.format = format;
+        this.bestSeller = bestSeller;
         this.trackList = trackList;
         this.price = price;
         this.status = status;
@@ -111,6 +113,14 @@ public class Vinyl {
 
     public void setFormat(Format format) {
         this.format = format;
+    }
+
+    public boolean isBestSeller() {
+        return bestSeller;
+    }
+
+    public void setBestSeller(boolean bestSeller) {
+        this.bestSeller = bestSeller;
     }
 
     public List<Track> getTrackList() {

@@ -14,7 +14,8 @@ public class Track {
     private String trackTitle;
     private String trackTime;
 
-    public Track(String trackNr, String trackTitle, String trackTime) {
+    public Track(Long id, String trackNr, String trackTitle, String trackTime) {
+        this.id = id;
         this.trackNr = trackNr;
         this.trackTitle = trackTitle;
         this.trackTime = trackTime;
