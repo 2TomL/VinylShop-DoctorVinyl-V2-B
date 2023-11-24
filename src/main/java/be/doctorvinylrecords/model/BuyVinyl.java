@@ -11,10 +11,11 @@ public class BuyVinyl {
     private User user;
     @ManyToOne(fetch = FetchType.EAGER)
     private Vinyl vinyl;
-    private Price price;
+    private double price;
 
     public BuyVinyl(){
 
     }
+
 
 }

@@ -22,7 +22,6 @@ public class Vinyl {
     private int released;
     private Format format;
     private boolean bestSeller;
-
     @OneToMany
     private List<Track> trackList;
     private double price;
