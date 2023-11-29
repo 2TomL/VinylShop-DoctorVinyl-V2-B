@@ -1,11 +1,11 @@
 package be.doctorvinylrecords.payload.request;
-
-import org.antlr.v4.runtime.misc.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 public class LoginRequest {
-    @NotNull
+    @NotBlank
     private String username;
-    @NotNull
+
+    @NotBlank
     private String password;
 
     public String getUsername() {

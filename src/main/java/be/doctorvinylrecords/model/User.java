@@ -1,7 +1,9 @@
 package be.doctorvinylrecords.model;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import javax.management.relation.Role;
 import java.util.HashSet;
@@ -19,19 +21,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private boolean isAdmin;
-    @NotNull
+    @NotBlank
     @Column(length = 25)
     private String username;
-    @NotNull
+    @NotBlank
     @Column(length = 50)
     private String email;
-    @NotNull
+    @NotBlank
     @Column(length = 120)
     private String password;
-    @NotNull
+    @NotBlank
     @Column(length = 120)
     private String name;
-    @NotNull
+    @NotBlank
     @Column(length = 120)
     private String famName;
     @ManyToMany (fetch = FetchType.LAZY)

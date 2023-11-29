@@ -1,29 +1,23 @@
 package be.doctorvinylrecords.payload.request;
 
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import org.antlr.v4.runtime.misc.NotNull;
-
 import java.util.Set;
 
+import jakarta.validation.constraints.*;
+
 public class RegisterRequest {
-    @NotNull
-    @Size(min = 3)
-    @Column(name = "username", nullable = false, length = 20)
+    @NotBlank
+    @Size(min = 3, max = 20)
     private String username;
 
     @NotBlank
-    @Column(name = "email", nullable = false, length = 50)
+    @Size(max = 50)
     @Email
     private String email;
 
     private Set<String> role;
 
     @NotBlank
-    @Size(min = 6)
-    @Column(name = "password", nullable = false, length = 20)
+    @Size(min = 6, max = 40)
     private String password;
 
     public String getUsername() {

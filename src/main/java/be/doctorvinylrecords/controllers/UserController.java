@@ -41,7 +41,7 @@ public class UserController {
     @DeleteMapping("/delete")
     @PreAuthorize("hasRole('USER')")
     public void deleteUser(long id){
-        userService.deleteUser(id);
+        userService.deleteUserById(id);
     }
 
 

@@ -18,18 +18,20 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private PasswordEncoder PasswordEncoder;
+    private PasswordEncoder encoder;
     private UserRepository userRepository;
-    private VinylRepository vinylRepository;
+    private VinylService vinylService;
     @Autowired
-    public UserService(PasswordEncoder encoder, UserRepository userRepository, VinylRepository vinylRepository) {
-        PasswordEncoder = encoder;
+    public UserService(PasswordEncoder encoder, UserRepository userRepository, VinylService vinylService) {
+        this.encoder = encoder;
         this.userRepository = userRepository;
-        this.vinylRepository = vinylRepository;
+        this.vinylService = vinylService;
     }
+
     public Optional<User> getUserByUserName(String userName) {
-        return UserRepository.findByUsername(userName);
+        return userRepository.findByUsername(userName);
     }
+
     public Optional<User> getUserById(long id) {
         return userRepository.findById(id);
     }
@@ -94,5 +96,4 @@ public class UserService {
                         .orElseThrow(NoSuchElementException::new)
                         .getPassword());
     }
-    // methods
 }
