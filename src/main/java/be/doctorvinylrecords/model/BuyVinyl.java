@@ -7,10 +7,10 @@ public class BuyVinyl {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @OneToOne(fetch = FetchType.EAGER)
-    private Vinyl vinyl;
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private User user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Vinyl vinyl;
     private double price;
 
     public BuyVinyl(Vinyl vinyl, User user, double price) {
