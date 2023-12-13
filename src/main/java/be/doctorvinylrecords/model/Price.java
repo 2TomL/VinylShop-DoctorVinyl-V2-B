@@ -1,7 +1,6 @@
 package be.doctorvinylrecords.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 @Entity
 public class Price {
