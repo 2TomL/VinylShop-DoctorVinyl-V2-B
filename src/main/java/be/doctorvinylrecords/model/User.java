@@ -17,7 +17,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private boolean isAdmin;
     @NotBlank
     @Column(length = 25)
     private String username;
@@ -27,10 +26,9 @@ public class User {
     @NotBlank
     @Column(length = 120)
     private String password;
-    @NotBlank
     @Column(length = 120)
     private String name;
-    @NotBlank
+
     @Column(length = 120)
     private String famName;
     @ManyToMany(fetch = FetchType.LAZY)
