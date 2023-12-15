@@ -33,7 +33,7 @@ public class WebSecurityConfig {
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter(){
         return new AuthTokenFilter();
-    }
+    }+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
