@@ -18,13 +18,16 @@ public class Vinyl {
     private String catalogNr;
     private String label;
     private String country;
+    @Enumerated(EnumType.STRING)
     private Category category;
     private int released;
+    @Enumerated(EnumType.STRING)
     private Format format;
     private boolean bestSeller;
     @OneToMany
     private List<Track> trackList;
     private double price;
+    @Enumerated(EnumType.STRING)
     private Status status;
     static private long Qt = 0;
 
