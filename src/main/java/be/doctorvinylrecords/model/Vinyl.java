@@ -11,6 +11,9 @@ public class Vinyl {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long vinylId;
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] imageFile;
     @NotNull
     private String artist;
     @NotNull
@@ -29,9 +32,9 @@ public class Vinyl {
     private double price;
     @Enumerated(EnumType.STRING)
     private Status status;
-    static private long Qt = 0;
+    private long Qt;
 
-    public Vinyl(String artist, String title, String catalogNr,String label, String country, Category category, int released, Format format, boolean bestSeller, List<Track> trackList, double price, Status status) {
+    public Vinyl(String artist, String title, String catalogNr,String label, String country, Category category, int released, Format format, boolean bestSeller, List<Track> trackList, double price, Status status, Long qt) {
         this.artist = artist;
         this.title = title;
         this.catalogNr = catalogNr;
@@ -45,12 +48,21 @@ public class Vinyl {
         this.price = price;
         this.status = status;
         setVinylId(vinylId);
+        this.Qt = qt;
     }
     public Vinyl(){
     }
 
     public void setVinylId(long vinylId) {
         this.vinylId = vinylId;
+    }
+
+    public byte[] getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(byte[] imageFile) {
+        this.imageFile = imageFile;
     }
 
     public String getArtist() {
@@ -149,11 +161,11 @@ public class Vinyl {
         this.status = status;
     }
 
-    public static long getQt() {
+    public long getQt() {
         return Qt;
     }
 
-    public static void setQt(long qt) {
+    public void setQt(long qt) {
         Qt = qt;
     }
 
@@ -173,6 +185,7 @@ public class Vinyl {
                 ", trackList=" + trackList +
                 ", price=" + price +
                 ", status=" + status +
+                ", Qt=" + Qt +
                 '}';
     }
 }

@@ -67,6 +67,7 @@ public class WebSecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/**").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/test/**").permitAll())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/vinyl/**").permitAll())
                 .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
                 .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
