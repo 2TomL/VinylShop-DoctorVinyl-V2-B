@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -11,7 +12,6 @@ public class Vinyl {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long vinylId;
-    @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] imageFile;
     @NotNull
@@ -33,8 +33,9 @@ public class Vinyl {
     @Enumerated(EnumType.STRING)
     private Status status;
     private long Qt;
+    private String ytLink;
 
-    public Vinyl(String artist, String title, String catalogNr,String label, String country, Category category, int released, Format format, boolean bestSeller, List<Track> trackList, double price, Status status, Long qt) {
+    public Vinyl(String artist, String title, String catalogNr,String label, String country, Category category, int released, Format format, boolean bestSeller, List<Track> trackList, double price, Status status, Long qt, String ytLink) {
         this.artist = artist;
         this.title = title;
         this.catalogNr = catalogNr;
@@ -49,6 +50,7 @@ public class Vinyl {
         this.status = status;
         setVinylId(vinylId);
         this.Qt = qt;
+        this.ytLink= ytLink;
     }
     public Vinyl(){
     }
@@ -169,10 +171,19 @@ public class Vinyl {
         Qt = qt;
     }
 
+    public String getYtLink() {
+        return ytLink;
+    }
+
+    public void setYtLink(String ytLink) {
+        this.ytLink = ytLink;
+    }
+
     @Override
     public String toString() {
         return "Vinyl{" +
                 "vinylId=" + vinylId +
+                ", imageFile=" + Arrays.toString(imageFile) +
                 ", artist='" + artist + '\'' +
                 ", title='" + title + '\'' +
                 ", catalogNr='" + catalogNr + '\'' +
@@ -186,6 +197,7 @@ public class Vinyl {
                 ", price=" + price +
                 ", status=" + status +
                 ", Qt=" + Qt +
+                ", ytLink='" + ytLink + '\'' +
                 '}';
     }
 }

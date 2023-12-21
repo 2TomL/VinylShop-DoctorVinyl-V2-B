@@ -7,7 +7,14 @@ import be.doctorvinylrecords.repository.VinylRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,4 +60,25 @@ public class VinylService {
     public List<Vinyl> searchVinyl(String query){
         return vinylRepository.searchVinyl(query);
     }
+
+    public boolean addImage(String imagePath, String fileName, MultipartFile multipartFile) {
+
+        Path path = Paths.get(imagePath);
+        if (!path.toFile().exists()) {
+            try {
+                Files.createDirectories(path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+            try (InputStream inputStream = multipartFile.getInputStream()) {
+                Path filePath = path.resolve(fileName);
+                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+
+                return true;
+            } catch (IOException e) {
+                return false;
+            }
+        }
+
 }
